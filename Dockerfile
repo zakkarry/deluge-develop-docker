@@ -10,7 +10,7 @@ FROM ghcr.io/linuxserver/baseimage-alpine:3.21
 ENV PYTHON_EGG_CACHE="/config/plugins/.python-eggs" \
   TMPDIR=/run/deluged-temp
 
-# copy release version script
+# copy the release version script
 COPY root/version.sh /app
 
 # install libtorrent v1
@@ -37,6 +37,7 @@ RUN \
   pip install -U --no-cache-dir \
     pip \
     setuptools \
+    requests \
     wheel && \
   mkdir /app/deluge-src && \
   git clone https://github.com/deluge-torrent/deluge.git /app/deluge-src/ && \
