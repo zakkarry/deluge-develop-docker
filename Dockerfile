@@ -24,6 +24,7 @@ RUN \
   echo "**** install packages ****" && \
   apk add --no-cache --upgrade \
     boost1.84-python3 \
+    libtorrent \
     geoip \
     p7zip && \
   python3 -m venv /lsiopy && \
