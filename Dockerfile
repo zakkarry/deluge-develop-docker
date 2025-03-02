@@ -32,11 +32,13 @@ RUN \
   apk add --no-cache --upgrade \
     boost1.84-python3 \
     geoip \
+    rsync \
     p7zip && \
   python3 -m venv /lsiopy && \
   pip install -U --no-cache-dir \
     pip \
     setuptools \
+    deluge-web-client \
     requests \
     wheel && \
   mkdir /app/deluge-src && \
