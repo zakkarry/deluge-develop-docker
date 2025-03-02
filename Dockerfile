@@ -25,12 +25,15 @@ RUN \
   apk add --no-cache --upgrade \
     boost1.84-python3 \
     libtorrent \
+    rsync \
     geoip \
     p7zip && \
   python3 -m venv /lsiopy && \
   pip install -U --no-cache-dir \
     pip \
     setuptools \
+    deluge-web-client \
+    requests \
     wheel && \
   mkdir /app/deluge-src && \
   git clone https://github.com/deluge-torrent/deluge.git /app/deluge-src/ && \
