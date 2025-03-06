@@ -52,8 +52,8 @@ RUN \
     pygeoip && \
   echo "**** grab GeoIP database ****" && \
   curl -L --retry 10 --retry-max-time 60 --retry-all-errors \
-    "https://mailfud.org/geoip-legacy/GeoIP.dat.gz" \
-    | gunzip > /usr/share/GeoIP/GeoIP.dat && \
+     "https://mailfud.org/geoip-legacy/GeoIP.dat.gz" \
+     | gunzip > /usr/share/GeoIP/GeoIP.dat && \
   printf "Linuxserver.io version: %s\nBuild-date: %s" "$(cat /app/deluge-src/RELEASE-VERSION)" "$(date +'%Y-%m-%d')" > /build_version && \
   echo "**** cleanup ****" && \
   apk del --purge \
