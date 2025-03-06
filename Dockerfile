@@ -24,7 +24,6 @@ RUN \
   echo "**** install packages ****" && \
   apk add --no-cache --upgrade \
     boost1.84-python3 \
-    libtorrent \
     rsync \
     geoip \
     p7zip && \
@@ -32,6 +31,7 @@ RUN \
   pip install -U --no-cache-dir \
     pip \
     setuptools \
+    libtorrent \
     deluge-web-client \
     requests \
     wheel && \
@@ -44,10 +44,10 @@ RUN \
   pip install /app/deluge-src && \
   pip install -U --no-cache-dir --find-links https://wheel-index.linuxserver.io/alpine-3.20/ \
     pygeoip && \
-  echo "**** grab GeoIP database ****" && \
-  curl -L --retry 10 --retry-max-time 60 --retry-all-errors \
-    "https://mailfud.org/geoip-legacy/GeoIP.dat.gz" \
-    | gunzip > /usr/share/GeoIP/GeoIP.dat && \
+  # echo "**** grab GeoIP database ****" && \
+  # curl -L --retry 10 --retry-max-time 60 --retry-all-errors \
+  #   "https://mailfud.org/geoip-legacy/GeoIP.dat.gz" \
+  #   | gunzip > /usr/share/GeoIP/GeoIP.dat && \
   printf "Linuxserver.io version: %s\nBuild-date: %s" "$(cat /app/deluge-src/RELEASE-VERSION)" "$(date +'%Y-%m-%d')" > /build_version && \
   echo "**** cleanup ****" && \
   apk del --purge \
