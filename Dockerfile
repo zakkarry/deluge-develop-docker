@@ -38,7 +38,7 @@ RUN \
   mkdir /app/deluge-src && \
   git clone https://github.com/deluge-torrent/deluge.git /app/deluge-src/ && \
   cd /app/deluge-src && \
-  git checkout master && \
+  git checkout deluge-2.2.0 && \
   /bin/bash /app/version.sh > /app/deluge-src/RELEASE-VERSION && \
   sed -i "s|VERSION_FILE = os.path.join(os.path.dirname(__file__), 'RELEASE-VERSION')|VERSION_FILE = '/app/deluge-src/RELEASE-VERSION'|" /app/deluge-src/version.py && \
   sed -i '/version = call_git_describe(prefix, suffix)/s/version = call_git_describe(prefix, suffix)/version = release_version/' /app/deluge-src/version.py && \
